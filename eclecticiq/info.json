@@ -1,8 +1,8 @@
 {
   "name": "eclecticiq",
   "label": "EclecticIQ",
-  "version": "1.0.2",
-  "description": "EclecticIQ connector.",
+  "version": "1.0.0",
+  "description": "EclecticIQ is a global threat intelligence, hunting and response technology provider. This connector facilitates the automated operations like get IP reputation, get domain reputation, get file reputation etc.",
   "publisher": "EclecticIQ",
   "cs_approved": false,
   "cs_compatible": true,
@@ -69,7 +69,7 @@
   "operations": [
     {
       "operation": "get_ip_reputation",
-      "title": "Get IP Address reputation",
+      "title": "Get IP Reputation",
       "category": "investigation",
       "annotation": "get_ip_reputation",
       "description": "Get IP Address reputation in the EclecticIQ Platform.",
@@ -83,12 +83,13 @@
           "type": "text",
           "name": "observable",
           "value": "",
-          "description": "Specify IP address value for the hunt."
+          "description": "Specify IP address value for the reputation hunt."
         }
       ],
       "output_schema": 
         {
           "status": "",
+          "count": "",
           "result":
             {
                 "last_updated": "",
@@ -102,7 +103,7 @@
     },
     {
       "operation": "get_domain_reputation",
-      "title": "Get Domain reputation",
+      "title": "Get Domain Reputation",
       "category": "investigation",
       "annotation": "get_domain_reputation",
       "description": "Get Domain name reputation in the EclecticIQ Platform.",
@@ -116,12 +117,13 @@
           "type": "text",
           "name": "observable",
           "value": "",
-          "description": "Specify Domain name value for the hunt."
+          "description": "Specify Domain name value for the reputation hunt."
         }
       ],
       "output_schema": 
         {
           "status": "",
+          "count": "",
           "result":
             {
                 "last_updated": "",
@@ -135,7 +137,7 @@
     },
     {
       "operation": "get_email_reputation",
-      "title": "Get Email reputation",
+      "title": "Get Email Reputation",
       "category": "investigation",
       "annotation": "get_email_reputation",
       "description": "Get Email reputation in the EclecticIQ Platform.",
@@ -149,12 +151,13 @@
           "type": "text",
           "name": "observable",
           "value": "",
-          "description": "Specify Email value for the hunt."
+          "description": "Specify Email value for the reputation hunt."
         }
       ],
       "output_schema": 
         {
           "status": "",
+          "count": "",
           "result":
             {
                 "last_updated": "",
@@ -168,26 +171,27 @@
     },
     {
       "operation": "get_file_reputation",
-      "title": "Get File name or Hash reputation",
+      "title": "Get Filename or Hash Reputation",
       "category": "investigation",
       "annotation": "get_file_reputation",
-      "description": "Get File name or Hash reputation in the EclecticIQ Platform.",
+      "description": "Get Filename or Hash reputation in the EclecticIQ Platform.",
       "enabled": true,
       "parameters": [
         {
-          "title": "File Name or Hash",
+          "title": "Filename or Hash",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "observable",
           "value": "",
-          "description": "Specify File Name or Hash value for the hunt."
+          "description": "Specify Filename or Hash value for the reputation hunt."
         }
       ],
       "output_schema": 
         {
           "status": "",
+          "count": "",
           "result":
             {
                 "last_updated": "",
@@ -201,26 +205,27 @@
     },
     {
       "operation": "get_uri_reputation",
-      "title": "Get URI reputation",
+      "title": "Get URL Reputation",
       "category": "investigation",
       "annotation": "get_uri_reputation",
-      "description": "Get URI reputation in the EclecticIQ Platform.",
+      "description": "Get URL reputation in the EclecticIQ Platform.",
       "enabled": true,
       "parameters": [
         {
-          "title": "URI",
+          "title": "URL",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "observable",
           "value": "",
-          "description": "Specify URI value for the hunt."
+          "description": "Specify URL value for the reputation hunt."
         }
       ],
       "output_schema": 
         {
           "status": "",
+          "count": "",
           "result":
             {
                 "last_updated": "",
@@ -234,14 +239,14 @@
     },
     {
       "operation": "query_entities",
-      "title": "Query entities",
+      "title": "Query Entities",
       "category": "investigation",
       "annotation": "query_entities",
       "description": "Query EclecticIQ Platform for entities.",
       "enabled": true,
       "parameters": [
         {
-          "title": "Observable value to search",
+          "title": "Search Observable",
           "required": false,
           "editable": true,
           "visible": true,
@@ -251,17 +256,18 @@
           "description": "Observable value to query related entities."
         },
         {
-          "title": "Text to search inside entity title",
+          "title": "Search Text into Entities Title",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "entity_value",
           "value": "",
+          "tooltip": "To find exact phrase wrap it with double-quotes (\\\")",
           "description": "Text to search inside entity title. To find exact phrase wrap it with double-quotes (\\\")."
         },
         {
-          "title": "Type of entity to query",
+          "title": "Entity Type to Query",
           "required": true,
           "editable": true,
           "visible": true,
@@ -299,71 +305,27 @@
       "enabled": true,
       "parameters": [
         {
-          "title": "Sighting title",
+          "title": "Sighting Title",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "sighting_title",
           "value": "Sighting created by FortiSOAR",
-          "description": "Specify Sighting Description."
+          "description": "Specify sighting title."
         },
         {
-          "title": "Sighting description",
+          "title": "Sighting Description",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "sighting_description",
           "value": "",
-          "description": "Specify Observable value for Sighting."
+          "description": "Specify sighting description for the observable."
         },
         {
-          "title": "Confidence value",
-          "required": true,
-          "editable": true,
-          "visible": true,
-          "type": "select",
-          "options": [
-                        "None",
-                        "Unknown",
-                        "Low",
-                        "Medium",
-                        "High"
-                    ],
-          "value": "Unknown",
-          "name": "confidence_value",
-          "description": "Specify Confidence value for Sighting."
-        },
-        {
-          "title": "Impact value",
-          "required": true,
-          "editable": true,
-          "visible": true,
-          "type": "select",
-          "options": [
-                        "None",
-                        "Unknown",
-                        "Low",
-                        "Medium",
-                        "High"
-                    ],
-          "value": "Unknown",
-          "name": "impact_value",
-          "description": "Specify Impact value for Sighting."
-        },
-        {
-          "title": "Sighting Tags",
-          "required": true,
-          "editable": true,
-          "visible": true,
-          "type": "text",
-          "name": "tags",
-          "value": "FortiSOAR Sighting, Automatically created",
-          "description": "Sighting tTags delimited by ','."
-        },
-        {
-          "title": "Observable value",
+          "title": "Observable Value",
           "required": true,
           "editable": true,
           "visible": true,
@@ -418,6 +380,50 @@
           "value": "Unknown",
           "name": "observable_maliciousness",
           "description": "Specify Observable maliciousness for Sighting."
+        },
+        {
+          "title": "Confidence value",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+                        "None",
+                        "Unknown",
+                        "Low",
+                        "Medium",
+                        "High"
+                    ],
+          "value": "Unknown",
+          "name": "confidence_value",
+          "description": "Specify Confidence value for Sighting."
+        },
+        {
+          "title": "Impact value",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+                        "None",
+                        "Unknown",
+                        "Low",
+                        "Medium",
+                        "High"
+                    ],
+          "value": "Unknown",
+          "name": "impact_value",
+          "description": "Specify Impact value for Sighting."
+        },
+        {
+          "title": "Sighting Tags",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "tags",
+          "value": "FortiSOAR Sighting, Automatically created",
+          "description": "Sighting Tags are CSV."
         }
       ],
       "output_schema":

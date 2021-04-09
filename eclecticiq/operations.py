@@ -6,7 +6,9 @@ logger = get_logger('eclecticiq')
 
 
 def get_config_data(config):
-    eiq_url = config.get('eiq_url', None)
+    eiq_url = config.get('eiq_url').strip('/')
+    if eiq_url[:7] == 'http://' and eiq_url[:8] != 'https://':
+        eiq_url = 'https://{0}'.format(str(eiq_url.replace('http://', '')))
     eiq_user = config.get('eiq_user', None)
     eiq_password = config.get('eiq_password', None)
     verify_ssl = config.get('verify_ssl', None)
@@ -46,39 +48,11 @@ def get_observable_reputation(config, operation_name, params):
                 'source_name': lookup_result.get('source_name'),
                 'created': lookup_result.get('created')
             }
-            return {"result": parsed_response, "status": "success"}
+            return {"result": parsed_response, "count": 1, "status": "success"}
 
         else:
             parsed_response = {}
-            return {"result": parsed_response, "status": "success"}
-
-    except Exception as e:
-        logger.exception("Error: {0}".format(e))
-        raise ConnectorError("Error: {0}".format(e))
-
-
-def create_sighting(config, operation_name, params):
-    eiq_group = config.get('eiq_group', None)
-
-    observables_dict = prepare_observables(params)
-
-    sighting_conf_value = params.get('confidence_value')
-    sighting_title = params.get('sighting_title')
-    sighting_tags = params.get('tags').split(",")
-    sighting_impact_value = params.get('impact_value')
-    sighting_description = params.get('sighting_description', "")
-
-    try:
-        eiq = eiq_init(config)
-        sighting = eiq.create_entity(observable_dict=observables_dict, source_group_name=eiq_group,
-                                              entity_title=sighting_title, entity_description=sighting_description,
-                                              entity_tags=sighting_tags, entity_confidence=sighting_conf_value,
-                                              entity_impact_value=sighting_impact_value)
-
-        if sighting is not False:
-            return {"result": sighting, "status": "success"}
-        else:
-            return {"result": sighting, "status": "fail"}
+            return {"result": parsed_response, "count": 0, "status": "success"}
 
     except Exception as e:
         logger.exception("Error: {0}".format(e))
@@ -128,6 +102,34 @@ def prepare_observables(param):
     return observables_list
 
 
+def create_sighting(config, operation_name, params):
+    eiq_group = config.get('eiq_group', None)
+
+    observables_dict = prepare_observables(params)
+
+    sighting_conf_value = params.get('confidence_value')
+    sighting_title = params.get('sighting_title')
+    sighting_tags = params.get('tags').split(",")
+    sighting_impact_value = params.get('impact_value')
+    sighting_description = params.get('sighting_description', "")
+
+    try:
+        eiq = eiq_init(config)
+        sighting = eiq.create_entity(observable_dict=observables_dict, source_group_name=eiq_group,
+                                              entity_title=sighting_title, entity_description=sighting_description,
+                                              entity_tags=sighting_tags, entity_confidence=sighting_conf_value,
+                                              entity_impact_value=sighting_impact_value)
+
+        if sighting is not False:
+            return {"result": sighting, "status": "success"}
+        else:
+            return {"result": sighting, "status": "fail"}
+
+    except Exception as e:
+        logger.exception("Error: {0}".format(e))
+        raise ConnectorError("Error: {0}".format(e))
+
+
 def query_entities(config, operation_name, params):
     if params['entity_type'] == "all":
         entity_type = '("campaign" OR "course-of-action" OR "exploit-target" OR "incident" OR' \
@@ -152,7 +154,6 @@ def query_entities(config, operation_name, params):
 
         if query_result is not False:
             for k in query_result:
-                parsed_response = {}
                 if len(k['_source']['extracts']) > 0:
                     for kk in k['_source']['extracts']:
                         response_classification = kk['meta'].get('classification', 'N/A')
@@ -187,7 +188,6 @@ def query_entities(config, operation_name, params):
                     response_title = k['_source']['data'].get('title', 'N/A')
                     response_description = k['_source']['data'].get('description', 'N/A')
                     response_threat_start = k['_source']['meta'].get('estimated_threat_start_time', 'N/A')
-                    response_tags = ''
                     response_source_name = k['_source']['sources'][0].get('name', 'N/A')
                     response_tags = ', '.join(k['_source']['tags'])
                     parsed_response = {
@@ -213,8 +213,6 @@ def query_entities(config, operation_name, params):
 
 
 def _check_health(config):
-    logger.info("IN _check_health(): config: {}".format(config))
-
     try:
         eiq = eiq_init(config)
         return True
