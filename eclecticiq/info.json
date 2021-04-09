@@ -7,7 +7,7 @@
   "cs_approved": false,
   "cs_compatible": true,
   "category": "threat intel",
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/eclecticiq/113/eclecticiq-v1-0-0",
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
   "configuration": {
@@ -21,7 +21,7 @@
         "name": "eiq_url",
         "tooltip": "IP address or FQDN of the EclecticIQ Platform.",
         "placeholder": "https://eclecticiq.platform.test",
-        "description": "IP address or FQDN of the EclecticIQ Platform."
+        "description": "IP address or FQDN of the EclecticIQ Platform to which you will connect and perform the automated operations."
       },
       {
         "title": "Username",
@@ -31,7 +31,7 @@
         "type": "text",
         "name": "eiq_user",
         "tooltip": "Username to authorize in EclecticIQ Platform.",
-        "description": "EclecticIQ Platform Username."
+        "description": "Username to access the EclecticIQ platform to which you will connect and perform the automated operations."
       },
       {
         "title": "Password",
@@ -40,7 +40,7 @@
         "visible": true,
         "type": "password",
         "name": "eiq_password",
-        "tooltip": "Password to authenticate EclecticIQ Platform user.",
+        "tooltip": "Password to access the EclecticIQ platform to which you will connect and perform the automated operations.",
         "description": "EclecticIQ Platform Password."
       },
       {
@@ -51,7 +51,8 @@
         "type": "text",
         "name": "eiq_group",
         "tooltip": "Group Name to create Sightings in EclecticIQ Platform. Case sensitive.",
-        "description": "Group Name to create Sightings in EclecticIQ Platform."
+        "placeholder": "Case Sensitive",
+        "description": "Name of the group that you will use to create 'Sightings' in the EclecticIQ Platform. Note: The group name is case-sensitive."
       },
       {
         "title": "Verify SSL",
@@ -62,7 +63,7 @@
         "name": "verify_ssl",
         "value": true,
         "tooltip": "Specifies whether the SSL certificate for the server is to be verified or not.",
-        "description": "Specifies whether the SSL certificate for the server is to be verified or not."
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not.By default, this option is set as True. "
       }
     ]
   },
@@ -72,7 +73,7 @@
       "title": "Get IP Reputation",
       "category": "investigation",
       "annotation": "get_ip_reputation",
-      "description": "Get IP Address reputation in the EclecticIQ Platform.",
+      "description": "Retrieves the reputation of the specified IP address from the EclecticIQ Platform. ",
       "enabled": true,
       "parameters": [
         {
@@ -83,7 +84,7 @@
           "type": "text",
           "name": "observable",
           "value": "",
-          "description": "Specify IP address value for the reputation hunt."
+          "description": "IP address that you want to hunt in the EclecticIQ Platform and whose reputation you want to retrieve from the EclecticIQ Platform. "
         }
       ],
       "output_schema": 
@@ -106,7 +107,7 @@
       "title": "Get Domain Reputation",
       "category": "investigation",
       "annotation": "get_domain_reputation",
-      "description": "Get Domain name reputation in the EclecticIQ Platform.",
+      "description": "Retrieves the reputation of the specified domain name from the EclecticIQ Platform.",
       "enabled": true,
       "parameters": [
         {
@@ -117,7 +118,7 @@
           "type": "text",
           "name": "observable",
           "value": "",
-          "description": "Specify Domain name value for the reputation hunt."
+          "description": "Name of the domain that you want to hunt in the EclecticIQ Platform and whose reputation you want to retrieve from the EclecticIQ Platform."
         }
       ],
       "output_schema": 
@@ -140,7 +141,7 @@
       "title": "Get Email Reputation",
       "category": "investigation",
       "annotation": "get_email_reputation",
-      "description": "Get Email reputation in the EclecticIQ Platform.",
+      "description": "Email address that you want to hunt in the EclecticIQ Platform and whose reputation you want to retrieve from the EclecticIQ Platform.",
       "enabled": true,
       "parameters": [
         {
@@ -174,7 +175,7 @@
       "title": "Get Filename or Hash Reputation",
       "category": "investigation",
       "annotation": "get_file_reputation",
-      "description": "Get Filename or Hash reputation in the EclecticIQ Platform.",
+      "description": "Retrieves the reputation of the specified file name of hash from the EclecticIQ Platform.",
       "enabled": true,
       "parameters": [
         {
@@ -185,7 +186,7 @@
           "type": "text",
           "name": "observable",
           "value": "",
-          "description": "Specify Filename or Hash value for the reputation hunt."
+          "description": "File name or file hash value that you want to hunt in the EclecticIQ Platform and whose reputation you want to retrieve from the EclecticIQ Platform."
         }
       ],
       "output_schema": 
@@ -208,7 +209,7 @@
       "title": "Get URL Reputation",
       "category": "investigation",
       "annotation": "get_uri_reputation",
-      "description": "Get URL reputation in the EclecticIQ Platform.",
+      "description": "Retrieves the reputation of the specified URL from the EclecticIQ Platform.",
       "enabled": true,
       "parameters": [
         {
@@ -219,7 +220,7 @@
           "type": "text",
           "name": "observable",
           "value": "",
-          "description": "Specify URL value for the reputation hunt."
+          "description": "URL value that you want to hunt in the EclecticIQ Platform and whose reputation you want to retrieve from the EclecticIQ Platform."
         }
       ],
       "output_schema": 
@@ -242,7 +243,7 @@
       "title": "Query Entities",
       "category": "investigation",
       "annotation": "query_entities",
-      "description": "Query EclecticIQ Platform for entities.",
+      "description": "Queries EclecticIQ Platform for entities based on the entity type and other input parameters you have specified.",
       "enabled": true,
       "parameters": [
         {
@@ -253,7 +254,7 @@
           "type": "text",
           "name": "query",
           "value": "",
-          "description": "Observable value to query related entities."
+          "description": "(Optional) Observable value that you want to use to query related entities in the EclecticIQ platform."
         },
         {
           "title": "Search Text into Entities Title",
@@ -264,7 +265,7 @@
           "name": "entity_value",
           "value": "",
           "tooltip": "To find exact phrase wrap it with double-quotes (\\\")",
-          "description": "Text to search inside entity title. To find exact phrase wrap it with double-quotes (\\\")."
+          "description": "(Optional)Text that you want to search in the title of the entity. To find the exact phrase wrap it within double-quotes (\\\")."
         },
         {
           "title": "Entity Type to Query",
@@ -276,7 +277,7 @@
           "options": ["all", "campaign", "course-of-action", "exploit-target", "incident", "indicator",
                         "threat-actor", "ttp"],
           "value": "all",
-          "description": "Type of entity to query."
+          "description": "Choose the type of entity that you want to query in the EclecticIQ platform. You can choose from entity types such as: all, campaign, incident, ttp, etc."
         }
       ],
       "output_schema": 
@@ -301,7 +302,7 @@
       "title": "Create Sighting",
       "category": "investigation",
       "annotation": "create_sighting",
-      "description": "Create Sighting in the EclecticIQ Platform.",
+      "description": "Creates a sighting in the EclecticIQ Platform based on the title, observable type, confidence value and other input parameters you have specified.",
       "enabled": true,
       "parameters": [
         {
@@ -312,7 +313,7 @@
           "type": "text",
           "name": "sighting_title",
           "value": "Sighting created by FortiSOAR",
-          "description": "Specify sighting title."
+          "description": "Title of the sighting that you want to create in the EclecticIQ platform."
         },
         {
           "title": "Sighting Description",
@@ -322,7 +323,7 @@
           "type": "text",
           "name": "sighting_description",
           "value": "",
-          "description": "Specify sighting description for the observable."
+          "description": "(Optional) Description of the sighting that you want to create in the EclecticIQ platform."
         },
         {
           "title": "Observable Value",
@@ -332,7 +333,7 @@
           "type": "text",
           "name": "observable_value",
           "value": "",
-          "description": "Specify Observable value for Sighting."
+          "description": "Specify the Observable value of the sighting that you want to create in the EclecticIQ platform."
         },
         {
           "title": "Observable type",
@@ -362,7 +363,7 @@
                         "winregistry"
                     ],
           "name": "observable_type",
-          "description": "Specify Observable type for Sighting."
+          "description": "Select the observable type of the sighting that you want to create in the EclecticIQ platform. You can choose from options such as: domain, email, host, ipv6, mutex, etc."
         },
         {
           "title": "Observable maliciousness",
@@ -379,7 +380,7 @@
                     ],
           "value": "Unknown",
           "name": "observable_maliciousness",
-          "description": "Specify Observable maliciousness for Sighting."
+          "description": "Select the observable maliciousness value of the sighting that you want to create in the EclecticIQ platform. You can choose from options such as: Unknown, Safe, Malicious (High confidence), Malicious (Medium confidence), or Malicious (Low confidence)"
         },
         {
           "title": "Confidence value",
@@ -396,7 +397,7 @@
                     ],
           "value": "Unknown",
           "name": "confidence_value",
-          "description": "Specify Confidence value for Sighting."
+          "description": "Select the confidence value of the sighting that you want to create in the EclecticIQ platform. You can choose from the following options: None, Unknown, Low, Medium, or High."
         },
         {
           "title": "Impact value",
@@ -413,7 +414,7 @@
                     ],
           "value": "Unknown",
           "name": "impact_value",
-          "description": "Specify Impact value for Sighting."
+          "description": "Select the impact value of the sighting that you want to create in the EclecticIQ platform. You can choose from the following options: None, Unknown, Low, Medium, or High."
         },
         {
           "title": "Sighting Tags",
@@ -423,7 +424,7 @@
           "type": "text",
           "name": "tags",
           "value": "FortiSOAR Sighting, Automatically created",
-          "description": "Sighting Tags are CSV."
+          "description": "Tags that you want to associate with the sighting that you want to create in the EclecticIQ platform. Each tag is delimited by ','."
         }
       ],
       "output_schema":
