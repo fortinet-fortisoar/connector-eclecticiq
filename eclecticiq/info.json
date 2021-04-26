@@ -1,13 +1,13 @@
 {
   "name": "eclecticiq",
   "label": "EclecticIQ",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "EclecticIQ is a global threat intelligence, hunting and response technology provider. This connector facilitates the automated operations like get IP reputation, get domain reputation, get file reputation etc.",
   "publisher": "EclecticIQ",
-  "cs_approved": false,
+  "cs_approved": true,
   "cs_compatible": true,
   "category": "threat intel",
-  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/eclecticiq/113/eclecticiq-v1-0-0",
+  "help_online": "",
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
   "configuration": {
