@@ -2,12 +2,15 @@
   "type": "workflow_collections",
   "data": [
     {
+      "@context": "/api/3/contexts/WorkflowCollection",
       "@type": "WorkflowCollection",
-      "name": "Sample - EclecticIQ - 1.0.0",
-      "description": "EclecticIQ is a global threat intelligence, hunting and response technology provider. This connector facilitates the automated operations like get IP reputation, get domain reputation, get file reputation etc.",
+      "name": "Sample - EclecticIQ - 1.1.0",
+      "description": "Sample playbooks for \"EclecticIQ\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
       "visible": true,
-      "image": "/api/3/images/ec997509-af4e-43b1-b6e8-f432ce42e5be",
-      "uuid": "4e216e94-a5a8-41f9-ad69-9d722db80d60",
+      "image": "/api/3/images/95133f5b-049d-42c7-a316-c576ee975120",
+      "id": 229,
+      "createDate": 1619430694,
+      "modifyDate": 1619430694,
       "recordTags": [],
       "workflows": [
         {
@@ -60,7 +63,7 @@
                 "params": {
                   "observable": ""
                 },
-                "version": "1.0.0",
+                "version": "1.1.0",
                 "connector": "eclecticiq",
                 "operation": "get_domain_reputation",
                 "operationTitle": "Get Domain Reputation",
@@ -146,7 +149,7 @@
                 "params": {
                   "observable": ""
                 },
-                "version": "1.0.0",
+                "version": "1.1.0",
                 "connector": "eclecticiq",
                 "operation": "get_file_reputation",
                 "operationTitle": "Get Filename or Hash Reputation",
@@ -232,7 +235,7 @@
                 "params": {
                   "observable": ""
                 },
-                "version": "1.0.0",
+                "version": "1.1.0",
                 "connector": "eclecticiq",
                 "operation": "get_email_reputation",
                 "operationTitle": "Get Email Reputation",
@@ -318,7 +321,7 @@
                 "params": {
                   "observable": ""
                 },
-                "version": "1.0.0",
+                "version": "1.1.0",
                 "connector": "eclecticiq",
                 "operation": "get_ip_reputation",
                 "operationTitle": "Get IP Reputation",
@@ -406,7 +409,7 @@
                   "entity_type": "all",
                   "entity_value": ""
                 },
-                "version": "1.0.0",
+                "version": "1.1.0",
                 "connector": "eclecticiq",
                 "operation": "query_entities",
                 "operationTitle": "Query Entities",
@@ -499,7 +502,7 @@
                   "sighting_description": "",
                   "observable_maliciousness": "Unknown"
                 },
-                "version": "1.0.0",
+                "version": "1.1.0",
                 "connector": "eclecticiq",
                 "operation": "create_sighting",
                 "operationTitle": "Create Sighting",
@@ -560,7 +563,7 @@
                 "params": {
                   "observable": ""
                 },
-                "version": "1.0.0",
+                "version": "1.1.0",
                 "connector": "eclecticiq",
                 "operation": "get_uri_reputation",
                 "operationTitle": "Get URL Reputation",
