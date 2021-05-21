@@ -60,10 +60,31 @@ def get_observable_reputation(config, operation_name, params):
 
 
 def prepare_observables(param):
+    valid_ops = {
+                        "Domain":"domain",
+                        "Email":"email",
+                        "Email Subject":"email-subject",
+                        "File":"file",
+                        "Hash":"hash",
+                        "Hash MD5":"hash-md5",
+                        "Hash SHA1":"hash-sha1",
+                        "Hash SHA256":"hash-sha256",
+                        "Hash SHA512":"hash-sha512",
+                        "Host":"host",
+                        "IPv4":"ipv4",
+                        "IPv6":"ipv6",
+                        "Mutex":"mutex",
+                        "Port":"port",
+                        "Process":"process",
+                        "URI":"uri",
+                        "URI Hash SHA256":"uri-hash-sha256",
+                        "Win Registry":"winregistry"
+                        }
+
     observable_params = [
         (
             param['observable_maliciousness'],
-            param['observable_type'],
+            valid_ops.get(param['observable_type']),
             param['observable_value'],
         )
     ]
@@ -106,11 +127,10 @@ def create_sighting(config, operation_name, params):
     eiq_group = config.get('eiq_group', None)
 
     observables_dict = prepare_observables(params)
-
-    sighting_conf_value = params.get('confidence_value')
+    sighting_conf_value = "None" if params.get('confidence_value') == "No Confidence(None)" else params.get('confidence_value')
     sighting_title = params.get('sighting_title')
     sighting_tags = params.get('tags').split(",")
-    sighting_impact_value = params.get('impact_value')
+    sighting_impact_value = "None" if params.get('impact_value') == "No Impact(None)" else params.get('impact_value')
     sighting_description = params.get('sighting_description', "")
 
     try:

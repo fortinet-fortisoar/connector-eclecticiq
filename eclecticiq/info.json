@@ -342,25 +342,24 @@
           "visible": true,
           "type": "select",
           "options": [
-                        "domain",
-                        "email",
-                        "email-subject",
-                        "file",
-                        "hash",
-                        "hash-md5",
-                        "hash-sha1",
-                        "hash-sha256",
-                        "hash-sha512",
-                        "host",
-                        "ipv4",
-                        "ipv6",
-                        "mutex",
-                        "port",
-                        "process",
-                        "sha512",
-                        "uri",
-                        "uri-hash-sha256",
-                        "winregistry"
+                        "Domain",
+                        "Email",
+                        "Email Subject",
+                        "File",
+                        "Hash",
+                        "Hash MD5",
+                        "Hash SHA1",
+                        "Hash SHA256",
+                        "Hash SHA512",
+                        "Host",
+                        "IPv4",
+                        "IPv6",
+                        "Mutex",
+                        "Port",
+                        "Process",
+                        "URI",
+                        "URI Hash SHA256",
+                        "Win Registry"
                     ],
           "name": "observable_type",
           "description": "Select the observable type of the sighting that you want to create in the EclecticIQ platform. You can choose from options such as: domain, email, host, ipv6, mutex, etc."
@@ -389,7 +388,7 @@
           "visible": true,
           "type": "select",
           "options": [
-                        "None",
+                        "No Confidence(None)",
                         "Unknown",
                         "Low",
                         "Medium",
@@ -397,7 +396,7 @@
                     ],
           "value": "Unknown",
           "name": "confidence_value",
-          "description": "Select the confidence value of the sighting that you want to create in the EclecticIQ platform. You can choose from the following options: None, Unknown, Low, Medium, or High."
+          "description": "Select the confidence value of the sighting that you want to create in the EclecticIQ platform. You can choose from the following options: No Confidence, Unknown, Low, Medium, or High."
         },
         {
           "title": "Impact value",
@@ -406,7 +405,7 @@
           "visible": true,
           "type": "select",
           "options": [
-                        "None",
+                        "No Impact(None)",
                         "Unknown",
                         "Low",
                         "Medium",
@@ -414,7 +413,7 @@
                     ],
           "value": "Unknown",
           "name": "impact_value",
-          "description": "Select the impact value of the sighting that you want to create in the EclecticIQ platform. You can choose from the following options: None, Unknown, Low, Medium, or High."
+          "description": "Select the impact value of the sighting that you want to create in the EclecticIQ platform. You can choose from the following options: No Impact, Unknown, Low, Medium, or High."
         },
         {
           "title": "Sighting Tags",
