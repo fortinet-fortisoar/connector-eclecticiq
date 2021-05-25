@@ -1162,6 +1162,7 @@ class EclecticIQ_api(object):
         if observable_value is not None:
             query_list.append("extracts.value:\"" + observable_value + "\"")
 
+
         if entity_type is not None:
             query_list.append("data.type:" + entity_type)
 
@@ -1271,7 +1272,7 @@ class EclecticIQ_api(object):
                                                 "hash-md5", "hash-sha1", "hash-sha256", "hash-sha512", "industry",
                                                 "ipv4",
                                                 "ipv6", "malware", "name", "organization", "port", "snort", "uri",
-                                                "yara"]:
+                                                "yara", "mutex", "process", "uri-hash-sha256", "winregistry"]:
                 record['kind'] = i['observable_type']
             else:
                 continue
