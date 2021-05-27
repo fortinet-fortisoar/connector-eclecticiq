@@ -87,7 +87,7 @@
           "description": "IP address that you want to hunt in the EclecticIQ Platform and whose reputation you want to retrieve from the EclecticIQ Platform. "
         }
       ],
-      "output_schema": 
+      "output_schema":
         {
           "status": "",
           "count": "",
@@ -121,7 +121,7 @@
           "description": "Name of the domain that you want to hunt in the EclecticIQ Platform and whose reputation you want to retrieve from the EclecticIQ Platform."
         }
       ],
-      "output_schema": 
+      "output_schema":
         {
           "status": "",
           "count": "",
@@ -155,7 +155,7 @@
           "description": "Specify Email value for the reputation hunt."
         }
       ],
-      "output_schema": 
+      "output_schema":
         {
           "status": "",
           "count": "",
@@ -189,7 +189,7 @@
           "description": "File name or file hash value that you want to hunt in the EclecticIQ Platform and whose reputation you want to retrieve from the EclecticIQ Platform."
         }
       ],
-      "output_schema": 
+      "output_schema":
         {
           "status": "",
           "count": "",
@@ -223,7 +223,7 @@
           "description": "URL value that you want to hunt in the EclecticIQ Platform and whose reputation you want to retrieve from the EclecticIQ Platform."
         }
       ],
-      "output_schema": 
+      "output_schema":
         {
           "status": "",
           "count": "",
@@ -274,28 +274,60 @@
           "visible": true,
           "name": "entity_type",
           "type": "select",
-          "options": ["all", "campaign", "course-of-action", "exploit-target", "incident", "indicator",
-                        "threat-actor", "ttp"],
-          "value": "all",
+          "options": [
+            "All",
+            "Campaign",
+            "Course of Action",
+            "Exploit Target",
+            "Exploit Target",
+            "Indicator",
+            "Incident",
+            "Threat Actor",
+            "TTP"
+          ],
+          "value": "All",
           "description": "Choose the type of entity that you want to query in the EclecticIQ platform. You can choose from entity types such as: all, campaign, incident, ttp, etc."
+        },
+        {
+          "title": "Number of Entities to Fetch",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "size",
+          "value": 10,
+          "description": "Number of entities to fetch from EclecticIQ."
+        },
+        {
+          "title": "Fetch Entities From",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "from",
+          "value": 0,
+          "description": "Specify the index from which you want to fetch the entities."
         }
       ],
-      "output_schema": 
-        {
-          "status": "",
-          "result":
-            {
-                "extract_kind": "",
-                "extract_value": "",
-                "extract_classification": "",
-                "extract_confidence": "",
-                "title": "",
-                "description": "",
-                "threat_start": "",
-                "tags": "",
-                "source_name": ""
-            }
-        }
+      "output_schema": {
+        "status": "",
+        "actual_result_size": "",
+        "reported_results": "",
+        "result": [
+          {
+            "extract_kind": "",
+            "extract_value": "",
+            "extract_classification": "",
+            "extract_confidence": "",
+            "title": "",
+            "type": "",
+            "description": "",
+            "threat_start": "",
+            "tags": "",
+            "source_name": ""
+          }
+        ]
+      }
     },
     {
       "operation": "create_sighting",
