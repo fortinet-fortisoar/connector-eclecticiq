@@ -1123,7 +1123,7 @@ class EclecticIQ_api(object):
 
         return result
 
-    def search_entity(self, entity_value=None, entity_type=None, entity_id=None, observable_value=None):
+    def search_entity(self, entity_value=None, entity_type=None, entity_id=None, observable_value=None, params=None):
         """Method search specific entity by specific search conditions.
 
         Note: search works with wildcards for entity value and with strict conditions for everything else.
@@ -1179,15 +1179,15 @@ class EclecticIQ_api(object):
 
         r = self.send_api_request(
             'post',
-            path=API_PATHS[self.eiq_api_version]['entity_search'],
+            path=API_PATHS[self.eiq_api_version]['entity_search'],params=params,
             data=search_dict)
 
         search_response = json.loads(r.text)
 
         if len(search_response['hits']['hits']) > 0:
-            return search_response['hits']['hits']
+            return search_response['hits']['hits'], search_response['hits']['total']
         else:
-            return False
+            return False, search_response['hits']['total']
 
     def elastic_search(self, search_payload=None, latency_check=False):
         self.eiq_logging.info("Searching in elastic")
