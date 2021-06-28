@@ -1,13 +1,13 @@
 {
   "name": "eclecticiq",
   "label": "EclecticIQ",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "EclecticIQ is a global threat intelligence, hunting and response technology provider. This connector facilitates the automated operations like get IP reputation, get domain reputation, get file reputation etc.",
   "publisher": "EclecticIQ",
-  "cs_approved": false,
+  "cs_approved": true,
   "cs_compatible": true,
   "category": "threat intel",
-  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/eclecticiq/113/eclecticiq-v1-0-0",
+  "help_online": "",
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
   "configuration": {
@@ -87,7 +87,7 @@
           "description": "IP address that you want to hunt in the EclecticIQ Platform and whose reputation you want to retrieve from the EclecticIQ Platform. "
         }
       ],
-      "output_schema": 
+      "output_schema":
         {
           "status": "",
           "count": "",
@@ -121,7 +121,7 @@
           "description": "Name of the domain that you want to hunt in the EclecticIQ Platform and whose reputation you want to retrieve from the EclecticIQ Platform."
         }
       ],
-      "output_schema": 
+      "output_schema":
         {
           "status": "",
           "count": "",
@@ -155,7 +155,7 @@
           "description": "Specify Email value for the reputation hunt."
         }
       ],
-      "output_schema": 
+      "output_schema":
         {
           "status": "",
           "count": "",
@@ -189,7 +189,7 @@
           "description": "File name or file hash value that you want to hunt in the EclecticIQ Platform and whose reputation you want to retrieve from the EclecticIQ Platform."
         }
       ],
-      "output_schema": 
+      "output_schema":
         {
           "status": "",
           "count": "",
@@ -223,7 +223,7 @@
           "description": "URL value that you want to hunt in the EclecticIQ Platform and whose reputation you want to retrieve from the EclecticIQ Platform."
         }
       ],
-      "output_schema": 
+      "output_schema":
         {
           "status": "",
           "count": "",
@@ -274,28 +274,60 @@
           "visible": true,
           "name": "entity_type",
           "type": "select",
-          "options": ["all", "campaign", "course-of-action", "exploit-target", "incident", "indicator",
-                        "threat-actor", "ttp"],
-          "value": "all",
+          "options": [
+            "All",
+            "Campaign",
+            "Course of Action",
+            "Exploit Target",
+            "Exploit Target",
+            "Indicator",
+            "Incident",
+            "Threat Actor",
+            "TTP"
+          ],
+          "value": "All",
           "description": "Choose the type of entity that you want to query in the EclecticIQ platform. You can choose from entity types such as: all, campaign, incident, ttp, etc."
+        },
+        {
+          "title": "Number of Entities to Fetch",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "size",
+          "value": 10,
+          "description": "Number of entities to fetch from EclecticIQ."
+        },
+        {
+          "title": "Fetch Entities From",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "from",
+          "value": 0,
+          "description": "Specify the index from which you want to fetch the entities."
         }
       ],
-      "output_schema": 
-        {
-          "status": "",
-          "result":
-            {
-                "extract_kind": "",
-                "extract_value": "",
-                "extract_classification": "",
-                "extract_confidence": "",
-                "title": "",
-                "description": "",
-                "threat_start": "",
-                "tags": "",
-                "source_name": ""
-            }
-        }
+      "output_schema": {
+        "status": "",
+        "actual_result_size": "",
+        "reported_results": "",
+        "result": [
+          {
+            "extract_kind": "",
+            "extract_value": "",
+            "extract_classification": "",
+            "extract_confidence": "",
+            "title": "",
+            "type": "",
+            "description": "",
+            "threat_start": "",
+            "tags": "",
+            "source_name": ""
+          }
+        ]
+      }
     },
     {
       "operation": "create_sighting",
@@ -342,25 +374,24 @@
           "visible": true,
           "type": "select",
           "options": [
-                        "domain",
-                        "email",
-                        "email-subject",
-                        "file",
-                        "hash",
-                        "hash-md5",
-                        "hash-sha1",
-                        "hash-sha256",
-                        "hash-sha512",
-                        "host",
-                        "ipv4",
-                        "ipv6",
-                        "mutex",
-                        "port",
-                        "process",
-                        "sha512",
-                        "uri",
-                        "uri-hash-sha256",
-                        "winregistry"
+                        "Domain",
+                        "Email",
+                        "Email Subject",
+                        "File",
+                        "Hash",
+                        "Hash MD5",
+                        "Hash SHA1",
+                        "Hash SHA256",
+                        "Hash SHA512",
+                        "Host",
+                        "IPv4",
+                        "IPv6",
+                        "Mutex",
+                        "Port",
+                        "Process",
+                        "URI",
+                        "URI Hash SHA256",
+                        "Win Registry"
                     ],
           "name": "observable_type",
           "description": "Select the observable type of the sighting that you want to create in the EclecticIQ platform. You can choose from options such as: domain, email, host, ipv6, mutex, etc."
@@ -389,7 +420,7 @@
           "visible": true,
           "type": "select",
           "options": [
-                        "None",
+                        "No Confidence(None)",
                         "Unknown",
                         "Low",
                         "Medium",
@@ -397,7 +428,7 @@
                     ],
           "value": "Unknown",
           "name": "confidence_value",
-          "description": "Select the confidence value of the sighting that you want to create in the EclecticIQ platform. You can choose from the following options: None, Unknown, Low, Medium, or High."
+          "description": "Select the confidence value of the sighting that you want to create in the EclecticIQ platform. You can choose from the following options: No Confidence, Unknown, Low, Medium, or High."
         },
         {
           "title": "Impact value",
@@ -406,7 +437,7 @@
           "visible": true,
           "type": "select",
           "options": [
-                        "None",
+                        "No Impact(None)",
                         "Unknown",
                         "Low",
                         "Medium",
@@ -414,7 +445,7 @@
                     ],
           "value": "Unknown",
           "name": "impact_value",
-          "description": "Select the impact value of the sighting that you want to create in the EclecticIQ platform. You can choose from the following options: None, Unknown, Low, Medium, or High."
+          "description": "Select the impact value of the sighting that you want to create in the EclecticIQ platform. You can choose from the following options: No Impact, Unknown, Low, Medium, or High."
         },
         {
           "title": "Sighting Tags",
