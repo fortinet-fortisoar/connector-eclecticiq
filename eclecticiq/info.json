@@ -7,7 +7,7 @@
   "cs_approved": true,
   "cs_compatible": true,
   "category": "threat intel",
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.1.0/eclecticiq/129/eclecticiq-v1-1-0",
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
   "configuration": {
@@ -296,7 +296,7 @@
           "type": "integer",
           "name": "size",
           "value": 10,
-          "description": "Number of entities to fetch from EclecticIQ."
+          "description": "(Optional) Maximum number of entries that this operation should return."
         },
         {
           "title": "Fetch Entities From",
@@ -306,7 +306,7 @@
           "type": "integer",
           "name": "from",
           "value": 0,
-          "description": "Specify the index from which you want to fetch the entities."
+          "description": "(Optional) Index of the first entity to be returned by this operation. This parameter is useful for pagination and if you want to get a subset of the response, say entities starting from the 10th entity."
         }
       ],
       "output_schema": {
