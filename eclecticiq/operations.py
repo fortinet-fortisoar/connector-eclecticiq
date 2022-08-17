@@ -35,21 +35,25 @@ def get_observable_reputation(config, operation_name, params):
 
     observable_value = params.get('observable')
     observable_type = observable_type_dict.get(str(operation_name))
+    is_parsed_response = params.get('is_parsed_response', False)
 
     try:
         eiq = eiq_init(config)
         lookup_result = eiq.lookup_observable(observable_value, observable_type)
 
         if isinstance(lookup_result, dict):
-            parsed_response = {
-                'last_updated': lookup_result.get('last_updated'),
-                'maliciousness': lookup_result.get('maliciousness'),
-                'value': lookup_result.get('value'),
-                'platform_link': lookup_result.get('platform_link'),
-                'source_name': lookup_result.get('source_name'),
-                'created': lookup_result.get('created')
-            }
-            return {"result": parsed_response, "count": 1, "status": "success"}
+            if is_parsed_response:
+                parsed_response = {
+                    'last_updated': lookup_result.get('last_updated'),
+                    'maliciousness': lookup_result.get('maliciousness'),
+                    'value': lookup_result.get('value'),
+                    'platform_link': lookup_result.get('platform_link'),
+                    'source_name': lookup_result.get('source_name'),
+                    'created': lookup_result.get('created')
+                }
+                return {"result": parsed_response, "count": 1, "status": "success"}
+            else:
+                return {"result": lookup_result, "count": 1, "status": "success"}
 
         else:
             parsed_response = {}

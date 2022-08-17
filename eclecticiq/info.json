@@ -1,13 +1,13 @@
 {
   "name": "eclecticiq",
   "label": "EclecticIQ",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "EclecticIQ is a global threat intelligence, hunting and response technology provider. This connector facilitates the automated operations like get IP reputation, get domain reputation, get file reputation etc.",
   "publisher": "EclecticIQ",
   "cs_approved": true,
   "cs_compatible": true,
-  "category": "threat intel",
-  "help_online": "https://docs.fortinet.com/document/fortisoar/1.1.0/eclecticiq/129/eclecticiq-v1-1-0",
+  "category": "Threat Intel",
+  "help_online": "",
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
   "configuration": {
@@ -85,6 +85,16 @@
           "name": "observable",
           "value": "",
           "description": "IP address that you want to hunt in the EclecticIQ Platform and whose reputation you want to retrieve from the EclecticIQ Platform. "
+        },
+        {
+          "name": "is_parsed_response",
+          "title": "Parsed Response",
+          "type": "checkbox",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "value": false,
+          "description": "Specify whether you want parsed response or not. By default, this option is set as False."
         }
       ],
       "output_schema":
@@ -119,22 +129,30 @@
           "name": "observable",
           "value": "",
           "description": "Name of the domain that you want to hunt in the EclecticIQ Platform and whose reputation you want to retrieve from the EclecticIQ Platform."
+        },
+        {
+          "name": "is_parsed_response",
+          "title": "Parsed Response",
+          "type": "checkbox",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "value": false,
+          "description": "Specify whether you want parsed response or not. By default, this option is set as False."
         }
       ],
-      "output_schema":
-        {
-          "status": "",
-          "count": "",
-          "result":
-            {
-                "last_updated": "",
-                "maliciousness": "",
-                "value": "",
-                "platform_link": "",
-                "source_name": "",
-                "created": ""
-            }
+      "output_schema": {
+        "status": "",
+        "count": "",
+        "result": {
+          "last_updated": "",
+          "maliciousness": "",
+          "value": "",
+          "platform_link": "",
+          "source_name": "",
+          "created": ""
         }
+      }
     },
     {
       "operation": "get_email_reputation",
@@ -153,22 +171,30 @@
           "name": "observable",
           "value": "",
           "description": "Specify Email value for the reputation hunt."
+        },
+        {
+          "name": "is_parsed_response",
+          "title": "Parsed Response",
+          "type": "checkbox",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "value": false,
+          "description": "Specify whether you want parsed response or not. By default, this option is set as False."
         }
       ],
-      "output_schema":
-        {
-          "status": "",
-          "count": "",
-          "result":
-            {
-                "last_updated": "",
-                "maliciousness": "",
-                "value": "",
-                "platform_link": "",
-                "source_name": "",
-                "created": ""
-            }
+      "output_schema": {
+        "status": "",
+        "count": "",
+        "result": {
+          "last_updated": "",
+          "maliciousness": "",
+          "value": "",
+          "platform_link": "",
+          "source_name": "",
+          "created": ""
         }
+      }
     },
     {
       "operation": "get_file_reputation",
@@ -187,22 +213,30 @@
           "name": "observable",
           "value": "",
           "description": "File name or file hash value that you want to hunt in the EclecticIQ Platform and whose reputation you want to retrieve from the EclecticIQ Platform."
+        },
+        {
+          "name": "is_parsed_response",
+          "title": "Parsed Response",
+          "type": "checkbox",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "value": false,
+          "description": "Specify whether you want parsed response or not. By default, this option is set as False."
         }
       ],
-      "output_schema":
-        {
-          "status": "",
-          "count": "",
-          "result":
-            {
-                "last_updated": "",
-                "maliciousness": "",
-                "value": "",
-                "platform_link": "",
-                "source_name": "",
-                "created": ""
-            }
+      "output_schema": {
+        "status": "",
+        "count": "",
+        "result": {
+          "last_updated": "",
+          "maliciousness": "",
+          "value": "",
+          "platform_link": "",
+          "source_name": "",
+          "created": ""
         }
+      }
     },
     {
       "operation": "get_uri_reputation",
@@ -221,22 +255,30 @@
           "name": "observable",
           "value": "",
           "description": "URL value that you want to hunt in the EclecticIQ Platform and whose reputation you want to retrieve from the EclecticIQ Platform."
+        },
+        {
+          "name": "is_parsed_response",
+          "title": "Parsed Response",
+          "type": "checkbox",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "value": false,
+          "description": "Specify whether you want parsed response or not. By default, this option is set as False."
         }
       ],
-      "output_schema":
-        {
-          "status": "",
-          "count": "",
-          "result":
-            {
-                "last_updated": "",
-                "maliciousness": "",
-                "value": "",
-                "platform_link": "",
-                "source_name": "",
-                "created": ""
-            }
+      "output_schema": {
+        "status": "",
+        "count": "",
+        "result": {
+          "last_updated": "",
+          "maliciousness": "",
+          "value": "",
+          "platform_link": "",
+          "source_name": "",
+          "created": ""
         }
+      }
     },
     {
       "operation": "query_entities",
@@ -374,25 +416,25 @@
           "visible": true,
           "type": "select",
           "options": [
-                        "Domain",
-                        "Email",
-                        "Email Subject",
-                        "File",
-                        "Hash",
-                        "Hash MD5",
-                        "Hash SHA1",
-                        "Hash SHA256",
-                        "Hash SHA512",
-                        "Host",
-                        "IPv4",
-                        "IPv6",
-                        "Mutex",
-                        "Port",
-                        "Process",
-                        "URI",
-                        "URI Hash SHA256",
-                        "Win Registry"
-                    ],
+            "Domain",
+            "Email",
+            "Email Subject",
+            "File",
+            "Hash",
+            "Hash MD5",
+            "Hash SHA1",
+            "Hash SHA256",
+            "Hash SHA512",
+            "Host",
+            "IPv4",
+            "IPv6",
+            "Mutex",
+            "Port",
+            "Process",
+            "URI",
+            "URI Hash SHA256",
+            "Win Registry"
+          ],
           "name": "observable_type",
           "description": "Select the observable type of the sighting that you want to create in the EclecticIQ platform. You can choose from options such as: domain, email, host, ipv6, mutex, etc."
         },
@@ -403,12 +445,12 @@
           "visible": true,
           "type": "select",
           "options": [
-                        "Malicious (High confidence)",
-                        "Malicious (Medium confidence)",
-                        "Malicious (Low confidence)",
-                        "Safe",
-                        "Unknown"
-                    ],
+            "Malicious (High confidence)",
+            "Malicious (Medium confidence)",
+            "Malicious (Low confidence)",
+            "Safe",
+            "Unknown"
+          ],
           "value": "Unknown",
           "name": "observable_maliciousness",
           "description": "Select the observable maliciousness value of the sighting that you want to create in the EclecticIQ platform. You can choose from options such as: Unknown, Safe, Malicious (High confidence), Malicious (Medium confidence), or Malicious (Low confidence)"
@@ -420,12 +462,12 @@
           "visible": true,
           "type": "select",
           "options": [
-                        "No Confidence(None)",
-                        "Unknown",
-                        "Low",
-                        "Medium",
-                        "High"
-                    ],
+            "No Confidence(None)",
+            "Unknown",
+            "Low",
+            "Medium",
+            "High"
+          ],
           "value": "Unknown",
           "name": "confidence_value",
           "description": "Select the confidence value of the sighting that you want to create in the EclecticIQ platform. You can choose from the following options: No Confidence, Unknown, Low, Medium, or High."
@@ -437,12 +479,12 @@
           "visible": true,
           "type": "select",
           "options": [
-                        "No Impact(None)",
-                        "Unknown",
-                        "Low",
-                        "Medium",
-                        "High"
-                    ],
+            "No Impact(None)",
+            "Unknown",
+            "Low",
+            "Medium",
+            "High"
+          ],
           "value": "Unknown",
           "name": "impact_value",
           "description": "Select the impact value of the sighting that you want to create in the EclecticIQ platform. You can choose from the following options: No Impact, Unknown, Low, Medium, or High."
@@ -458,11 +500,10 @@
           "description": "Tags that you want to associate with the sighting that you want to create in the EclecticIQ platform. Each tag is delimited by ','."
         }
       ],
-      "output_schema":
-        {
-          "status": "",
-          "result": ""
-        }
+      "output_schema": {
+        "status": "",
+        "result": ""
+      }
     }
   ]
 }
