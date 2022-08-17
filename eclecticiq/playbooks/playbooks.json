@@ -7,10 +7,12 @@
       "name": "Sample - EclecticIQ - 1.2.0",
       "description": "Sample playbooks for \"EclecticIQ\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
       "visible": true,
-      "image": "/api/3/images/95133f5b-049d-42c7-a316-c576ee975120",
-      "id": 229,
-      "createDate": 1619430694,
-      "modifyDate": 1619430694,
+      "image": "/api/3/images/5013880c-fec9-4807-acbd-0d54aed318aa",
+      "id": 170,
+      "createDate": 1660738498.005364,
+      "modifyDate": 1660738498.005364,
+      "deletedAt": null,
+      "importedBy": [],
       "recordTags": [],
       "workflows": [
         {
@@ -18,14 +20,17 @@
           "triggerLimit": null,
           "name": "Get Domain Reputation",
           "aliasName": null,
-          "description": "Get Domain name reputation in the EclecticIQ Platform.",
-          "collection": "/api/3/workflow_collections/4e216e94-a5a8-41f9-ad69-9d722db80d60",
           "tag": "#EclecticIQ",
+          "description": "Get Domain name reputation in the EclecticIQ Platform.",
           "isActive": false,
+          "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
+          "lastModifyDate": 1617880524,
+          "collection": "/api/3/workflow_collections/3c9105f9-1df7-42f7-ba04-d20f789920f4",
+          "versions": [],
           "triggerStep": "/api/3/workflow_steps/0be3fc29-23ff-48a9-acf2-77eb3fa6eab7",
           "steps": [
             {
@@ -48,9 +53,10 @@
                 "singleRecordExecution": false
               },
               "status": null,
-              "left": "20",
               "top": "20",
+              "left": "20",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
               "uuid": "0be3fc29-23ff-48a9-acf2-77eb3fa6eab7"
             },
             {
@@ -72,46 +78,52 @@
                 }
               },
               "status": null,
-              "left": "188",
               "top": "120",
+              "left": "188",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
               "uuid": "dbb30ad0-82e9-4a16-85c8-6409528bdded"
             }
           ],
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "4fe61a51-ddbf-4bbf-b1d7-4b01516ca123",
               "name": "Alerts -> Get Domain Reputation",
+              "targetStep": "/api/3/workflow_steps/dbb30ad0-82e9-4a16-85c8-6409528bdded",
+              "sourceStep": "/api/3/workflow_steps/0be3fc29-23ff-48a9-acf2-77eb3fa6eab7",
               "label": null,
               "isExecuted": false,
-              "targetStep": "/api/3/workflow_steps/dbb30ad0-82e9-4a16-85c8-6409528bdded",
-              "sourceStep": "/api/3/workflow_steps/0be3fc29-23ff-48a9-acf2-77eb3fa6eab7"
+              "uuid": "4fe61a51-ddbf-4bbf-b1d7-4b01516ca123"
             }
           ],
-          "versions": null,
-          "lastModifyDate": 1617880524,
+          "groups": [],
           "priority": null,
           "uuid": "2b7f6902-1139-449b-911f-4ca441b49db1",
+          "id": 2180,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
           "recordTags": [
             "EclecticIQ"
-          ],
-          "isPrivate": false,
-          "owners": []
+          ]
         },
         {
           "@type": "Workflow",
           "triggerLimit": null,
           "name": "Get Filename or Hash Reputation",
           "aliasName": null,
-          "description": "Get Filename or Hash reputation in the EclecticIQ Platform.",
-          "collection": "/api/3/workflow_collections/4e216e94-a5a8-41f9-ad69-9d722db80d60",
           "tag": "#EclecticIQ",
+          "description": "Get Filename or Hash reputation in the EclecticIQ Platform.",
           "isActive": false,
+          "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
+          "lastModifyDate": 1617880578,
+          "collection": "/api/3/workflow_collections/3c9105f9-1df7-42f7-ba04-d20f789920f4",
+          "versions": [],
           "triggerStep": "/api/3/workflow_steps/ce46a108-11ca-4f32-b893-ea7b90dd5c5b",
           "steps": [
             {
@@ -134,9 +146,10 @@
                 "singleRecordExecution": false
               },
               "status": null,
-              "left": "20",
               "top": "20",
+              "left": "20",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
               "uuid": "ce46a108-11ca-4f32-b893-ea7b90dd5c5b"
             },
             {
@@ -158,46 +171,52 @@
                 }
               },
               "status": null,
-              "left": "188",
               "top": "120",
+              "left": "188",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
               "uuid": "a4c36855-5859-48d1-8613-125ecac9b20c"
             }
           ],
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "24945923-2a08-44a4-a201-cbbea6447698",
               "name": "Alerts -> Get Filename or Hash Reputation",
+              "targetStep": "/api/3/workflow_steps/a4c36855-5859-48d1-8613-125ecac9b20c",
+              "sourceStep": "/api/3/workflow_steps/ce46a108-11ca-4f32-b893-ea7b90dd5c5b",
               "label": null,
               "isExecuted": false,
-              "targetStep": "/api/3/workflow_steps/a4c36855-5859-48d1-8613-125ecac9b20c",
-              "sourceStep": "/api/3/workflow_steps/ce46a108-11ca-4f32-b893-ea7b90dd5c5b"
+              "uuid": "24945923-2a08-44a4-a201-cbbea6447698"
             }
           ],
-          "versions": null,
-          "lastModifyDate": 1617880578,
+          "groups": [],
           "priority": null,
           "uuid": "45b5b01b-578a-4f3f-9ca6-4ecb3ac1f96a",
+          "id": 2181,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
           "recordTags": [
             "EclecticIQ"
-          ],
-          "isPrivate": false,
-          "owners": []
+          ]
         },
         {
           "@type": "Workflow",
           "triggerLimit": null,
           "name": "Get Email Reputation",
           "aliasName": null,
-          "description": "Get Email reputation in the EclecticIQ Platform.",
-          "collection": "/api/3/workflow_collections/4e216e94-a5a8-41f9-ad69-9d722db80d60",
           "tag": "#EclecticIQ",
+          "description": "Get Email reputation in the EclecticIQ Platform.",
           "isActive": false,
+          "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
+          "lastModifyDate": 1617880555,
+          "collection": "/api/3/workflow_collections/3c9105f9-1df7-42f7-ba04-d20f789920f4",
+          "versions": [],
           "triggerStep": "/api/3/workflow_steps/2addf62d-97e6-4f50-a4f3-7494ee4f6572",
           "steps": [
             {
@@ -220,9 +239,10 @@
                 "singleRecordExecution": false
               },
               "status": null,
-              "left": "20",
               "top": "20",
+              "left": "20",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
               "uuid": "2addf62d-97e6-4f50-a4f3-7494ee4f6572"
             },
             {
@@ -244,46 +264,52 @@
                 }
               },
               "status": null,
-              "left": "188",
               "top": "120",
+              "left": "188",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
               "uuid": "b2700212-7133-403b-8228-5328d5118160"
             }
           ],
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "4deb7a80-37e6-4f4c-9f61-47ce832951db",
               "name": "Alerts -> Get Email Reputation",
+              "targetStep": "/api/3/workflow_steps/b2700212-7133-403b-8228-5328d5118160",
+              "sourceStep": "/api/3/workflow_steps/2addf62d-97e6-4f50-a4f3-7494ee4f6572",
               "label": null,
               "isExecuted": false,
-              "targetStep": "/api/3/workflow_steps/b2700212-7133-403b-8228-5328d5118160",
-              "sourceStep": "/api/3/workflow_steps/2addf62d-97e6-4f50-a4f3-7494ee4f6572"
+              "uuid": "4deb7a80-37e6-4f4c-9f61-47ce832951db"
             }
           ],
-          "versions": null,
-          "lastModifyDate": 1617880555,
+          "groups": [],
           "priority": null,
           "uuid": "96cc5c65-6dd4-412e-b182-b665ac87e4a3",
+          "id": 2182,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
           "recordTags": [
             "EclecticIQ"
-          ],
-          "isPrivate": false,
-          "owners": []
+          ]
         },
         {
           "@type": "Workflow",
           "triggerLimit": null,
           "name": "Get IP Reputation",
           "aliasName": null,
-          "description": "Get IP Address reputation in the EclecticIQ Platform.",
-          "collection": "/api/3/workflow_collections/4e216e94-a5a8-41f9-ad69-9d722db80d60",
           "tag": "#EclecticIQ",
+          "description": "Get IP Address reputation in the EclecticIQ Platform.",
           "isActive": false,
+          "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
+          "lastModifyDate": 1617880591,
+          "collection": "/api/3/workflow_collections/3c9105f9-1df7-42f7-ba04-d20f789920f4",
+          "versions": [],
           "triggerStep": "/api/3/workflow_steps/8622f094-1c20-49a5-b195-7a306e9df7e9",
           "steps": [
             {
@@ -306,9 +332,10 @@
                 "singleRecordExecution": false
               },
               "status": null,
-              "left": "20",
               "top": "20",
+              "left": "20",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
               "uuid": "8622f094-1c20-49a5-b195-7a306e9df7e9"
             },
             {
@@ -330,46 +357,52 @@
                 }
               },
               "status": null,
-              "left": "188",
               "top": "120",
+              "left": "188",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
               "uuid": "1e1df4b7-139a-4f0b-b1a9-1796ba4a74d8"
             }
           ],
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "f19f91fe-15f4-4410-a337-672f2535282e",
               "name": "Alerts -> Get IP Reputation",
+              "targetStep": "/api/3/workflow_steps/1e1df4b7-139a-4f0b-b1a9-1796ba4a74d8",
+              "sourceStep": "/api/3/workflow_steps/8622f094-1c20-49a5-b195-7a306e9df7e9",
               "label": null,
               "isExecuted": false,
-              "targetStep": "/api/3/workflow_steps/1e1df4b7-139a-4f0b-b1a9-1796ba4a74d8",
-              "sourceStep": "/api/3/workflow_steps/8622f094-1c20-49a5-b195-7a306e9df7e9"
+              "uuid": "f19f91fe-15f4-4410-a337-672f2535282e"
             }
           ],
-          "versions": null,
-          "lastModifyDate": 1617880591,
+          "groups": [],
           "priority": null,
           "uuid": "b861f097-46bd-4bd8-8302-80518166ac60",
+          "id": 2183,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
           "recordTags": [
             "EclecticIQ"
-          ],
-          "isPrivate": false,
-          "owners": []
+          ]
         },
         {
           "@type": "Workflow",
           "triggerLimit": null,
           "name": "Query Entities",
           "aliasName": null,
-          "description": "Query EclecticIQ Platform for entities.",
-          "collection": "/api/3/workflow_collections/4e216e94-a5a8-41f9-ad69-9d722db80d60",
           "tag": "#EclecticIQ",
+          "description": "Query EclecticIQ Platform for entities.",
           "isActive": false,
+          "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
+          "lastModifyDate": 1617880643,
+          "collection": "/api/3/workflow_collections/3c9105f9-1df7-42f7-ba04-d20f789920f4",
+          "versions": [],
           "triggerStep": "/api/3/workflow_steps/7d20bbd4-5588-42a3-8b39-554fb677710c",
           "steps": [
             {
@@ -392,9 +425,10 @@
                 "singleRecordExecution": false
               },
               "status": null,
-              "left": "20",
               "top": "20",
+              "left": "20",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
               "uuid": "7d20bbd4-5588-42a3-8b39-554fb677710c"
             },
             {
@@ -418,46 +452,52 @@
                 }
               },
               "status": null,
-              "left": "188",
               "top": "120",
+              "left": "188",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
               "uuid": "a16756e6-6119-46cb-8145-b7f644e6647f"
             }
           ],
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "1463c575-5fd4-4ef1-8b41-910b9b38783c",
               "name": "Alerts -> Query Entities",
+              "targetStep": "/api/3/workflow_steps/a16756e6-6119-46cb-8145-b7f644e6647f",
+              "sourceStep": "/api/3/workflow_steps/7d20bbd4-5588-42a3-8b39-554fb677710c",
               "label": null,
               "isExecuted": false,
-              "targetStep": "/api/3/workflow_steps/a16756e6-6119-46cb-8145-b7f644e6647f",
-              "sourceStep": "/api/3/workflow_steps/7d20bbd4-5588-42a3-8b39-554fb677710c"
+              "uuid": "1463c575-5fd4-4ef1-8b41-910b9b38783c"
             }
           ],
-          "versions": null,
-          "lastModifyDate": 1617880643,
+          "groups": [],
           "priority": null,
           "uuid": "bbc3b550-976f-43a3-b37c-0f829b8bb7af",
+          "id": 2184,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
           "recordTags": [
             "EclecticIQ"
-          ],
-          "isPrivate": false,
-          "owners": []
+          ]
         },
         {
           "@type": "Workflow",
           "triggerLimit": null,
           "name": "Create Sighting",
           "aliasName": null,
-          "description": "Create Sighting in the EclecticIQ Platform.",
-          "collection": "/api/3/workflow_collections/4e216e94-a5a8-41f9-ad69-9d722db80d60",
           "tag": "#EclecticIQ",
+          "description": "Create Sighting in the EclecticIQ Platform.",
           "isActive": false,
+          "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
+          "lastModifyDate": 1617880473,
+          "collection": "/api/3/workflow_collections/3c9105f9-1df7-42f7-ba04-d20f789920f4",
+          "versions": [],
           "triggerStep": "/api/3/workflow_steps/9be469d0-0874-4b21-b288-38bda0d7d4c4",
           "steps": [
             {
@@ -480,9 +520,10 @@
                 "singleRecordExecution": false
               },
               "status": null,
-              "left": "20",
               "top": "20",
+              "left": "20",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
               "uuid": "9be469d0-0874-4b21-b288-38bda0d7d4c4"
             },
             {
@@ -511,46 +552,52 @@
                 }
               },
               "status": null,
-              "left": "188",
               "top": "120",
+              "left": "188",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
               "uuid": "80884daa-dc2f-440e-88d6-2ca6e157f580"
             }
           ],
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "fadf60cb-f518-4f6f-b540-c9f5b3ae0244",
               "name": "Alerts -> Create Sighting",
+              "targetStep": "/api/3/workflow_steps/80884daa-dc2f-440e-88d6-2ca6e157f580",
+              "sourceStep": "/api/3/workflow_steps/9be469d0-0874-4b21-b288-38bda0d7d4c4",
               "label": null,
               "isExecuted": false,
-              "targetStep": "/api/3/workflow_steps/80884daa-dc2f-440e-88d6-2ca6e157f580",
-              "sourceStep": "/api/3/workflow_steps/9be469d0-0874-4b21-b288-38bda0d7d4c4"
+              "uuid": "fadf60cb-f518-4f6f-b540-c9f5b3ae0244"
             }
           ],
-          "versions": null,
-          "lastModifyDate": 1617880473,
+          "groups": [],
           "priority": null,
           "uuid": "d9df19d5-77fc-4045-9dce-6be1ed41a739",
+          "id": 2185,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
           "recordTags": [
             "EclecticIQ"
-          ],
-          "isPrivate": false,
-          "owners": []
+          ]
         },
         {
           "@type": "Workflow",
           "triggerLimit": null,
           "name": "Get URL Reputation",
           "aliasName": null,
-          "description": "Get URL reputation in the EclecticIQ Platform.",
-          "collection": "/api/3/workflow_collections/4e216e94-a5a8-41f9-ad69-9d722db80d60",
           "tag": "#EclecticIQ",
+          "description": "Get URL reputation in the EclecticIQ Platform.",
           "isActive": false,
+          "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
+          "lastModifyDate": 1617880610,
+          "collection": "/api/3/workflow_collections/3c9105f9-1df7-42f7-ba04-d20f789920f4",
+          "versions": [],
           "triggerStep": "/api/3/workflow_steps/5785dc56-7a6e-4349-ae1c-06d005555f2e",
           "steps": [
             {
@@ -572,9 +619,10 @@
                 }
               },
               "status": null,
-              "left": "188",
               "top": "120",
+              "left": "188",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
               "uuid": "28ab53d2-7202-45ff-aa5f-65651a7a1398"
             },
             {
@@ -597,32 +645,35 @@
                 "singleRecordExecution": false
               },
               "status": null,
-              "left": "20",
               "top": "20",
+              "left": "20",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
               "uuid": "5785dc56-7a6e-4349-ae1c-06d005555f2e"
             }
           ],
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "dd1d7000-9672-4c07-b177-4d143129fe3d",
               "name": "Alerts -> Get URL Reputation",
+              "targetStep": "/api/3/workflow_steps/28ab53d2-7202-45ff-aa5f-65651a7a1398",
+              "sourceStep": "/api/3/workflow_steps/5785dc56-7a6e-4349-ae1c-06d005555f2e",
               "label": null,
               "isExecuted": false,
-              "targetStep": "/api/3/workflow_steps/28ab53d2-7202-45ff-aa5f-65651a7a1398",
-              "sourceStep": "/api/3/workflow_steps/5785dc56-7a6e-4349-ae1c-06d005555f2e"
+              "uuid": "dd1d7000-9672-4c07-b177-4d143129fe3d"
             }
           ],
-          "versions": null,
-          "lastModifyDate": 1617880610,
+          "groups": [],
           "priority": null,
           "uuid": "f3f9f298-4f5d-451b-a5d4-4d59397bb7f3",
+          "id": 2186,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
           "recordTags": [
             "EclecticIQ"
-          ],
-          "isPrivate": false,
-          "owners": []
+          ]
         }
       ]
     }
