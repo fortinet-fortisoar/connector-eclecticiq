@@ -1,5 +1,7 @@
 #### What's Improved
-- Certified this version of the connector.
-- Added the following pagination parameters to the "Query Entities" operation:		
-	- Number of Entities to Fetch
-	- Fetch Entities From
+- "Parsed Response" parameter added in the following actions:
+  - Get IP Reputation 
+  - Get Domain Reputation 
+  - Get Email Reputation
+  - Get Filename or Hash Reputation 
+  - Get URL Reputation
