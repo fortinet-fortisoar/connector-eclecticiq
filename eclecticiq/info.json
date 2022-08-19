@@ -4,7 +4,7 @@
   "version": "1.2.0",
   "description": "EclecticIQ is a global threat intelligence, hunting and response technology provider. This connector facilitates the automated operations like get IP reputation, get domain reputation, get file reputation etc.",
   "publisher": "EclecticIQ",
-  "cs_approved": true,
+  "cs_approved": false,
   "cs_compatible": true,
   "category": "Threat Intelligence",
   "help_online": "",
